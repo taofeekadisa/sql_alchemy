@@ -1,10 +1,12 @@
-from models import Base, User, Expenses
+from models import Base, Customer, Vendor, Admin, Order, OrderItem, product_promotion, Product, Category
+
+from models import Payment, Cart, CartItem, Shipping, CustomerAddress, Inventory, Review, Promotion
 from database import engine, session
 import pprint
 
 Base.metadata.create_all(engine)
 
-# #Create user
+# #Create Customer
 
 # user1 = User(
 #     first_name = "Desayo",
@@ -46,8 +48,8 @@ Base.metadata.create_all(engine)
 #     print(user)
     
 # # #Read single user
-user = session.query(User).filter_by(id=1).first()
-pprint.pprint(user.expenses)
+# user = session.query(User).filter_by(id=1).first()
+# pprint.pprint(user.expenses)
 
 # expense = session.query(Expenses).filter_by(id=1).first()
 # print(expense.user)
