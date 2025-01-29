@@ -6,29 +6,73 @@ import pprint
 
 Base.metadata.create_all(engine)
 
-# #Create Customer
+#Create Customer
 
-# user1 = User(
-#     first_name = "Desayo",
-#     last_name = "Labaeka",
-#     country = "Nigeria",
-#     city = "Lagos",
-#     phone_number = "+23216545",
-#     password = "mypass"
-#     # expenses = [user1_expense]
+# user1 = Customer(
+#     first_name = "Daniel",
+#     last_name = "Alaga",
+#     username = "danla",
+#     email = "dan@dan.com",
+#     phone_number = "+23565485",
+#     password_hash = "mypass"
 # )
 
-# # user2 = User(
-# #     first_name = "John",
-# #     last_name = "Doe",
-# #     country = "Ghana",
-# #     city = "Accra",
-# #     phone_number = "+2331233",
-# #     password = "mypass"
-# # )
+# user2 = Customer(
+#     first_name = "Mike",
+#     last_name = "Kone",
+#     username = "kona",
+#     email = "kon@dan.com",
+#     phone_number = "+23565485654",
+#     password_hash = "mypass2"
+# )
 
-# session.add(user1)
+# session.add_all([user1, user2])
 # session.commit()
+
+
+# user5 = Customer(
+#     first_name = "Ade",
+#     last_name = "Kunle",
+#     username = "kunle.ade",
+#     email = "ade@dan.com",
+#     phone_number = "+23565485894",
+#     password_hash = "mypass3"
+# )
+
+kona = session.query(Customer).filter_by(email='kon@dan.com').first()
+
+# useraddress3 = CustomerAddress (
+#     residence_number = 101,
+#     customer = user3,
+#     street = "Olasunkanmi Street",
+#     city = "Lagos",
+#     postal_code = "1200-101",
+#     country = "Nigeria",
+#     description = "Na my addres be this o"
+# )
+
+useraddress4 = CustomerAddress (
+    residence_number = 190,
+    customer = kona,
+    street = "Johnson Street",
+    city = "Lagos",
+    postal_code = "14568-90",
+    country = "Nigeria",
+    description = "Na my forth address be this o"
+)
+
+useraddress5 = CustomerAddress (
+    residence_number = 190,
+    customer = kona,
+    street = "Johnson Street",
+    city = "Lagos",
+    postal_code = "14568-90",
+    country = "Nigeria",
+    description = "Na my forth address be this o"
+)
+
+session.add_all([useraddress4, useraddress5])
+session.commit()
 
 
 # #Add an expense

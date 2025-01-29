@@ -60,7 +60,8 @@ class Customer(Base):
     date_created:Mapped[DateTime] = mapped_column(DateTime, default=datetime.now)
     
     order:Mapped[List["Order"]] = relationship(back_populates="customer")
-    review:Mapped[List["Review"]] = relationship(backref="customer")
+    review:Mapped[List["Review"]] = relationship(back_populates="customer")
+    address:Mapped[List["CustomerAddress"]] = relationship(back_populates="customer")
    
     def __repr__(self) -> str:
         return [f"Customer(id={self.id!r}, first_name={self.first_name!r}, last_name={self.last_name!r},"
@@ -138,7 +139,7 @@ class OrderItem(Base):
     unit_price:Mapped[float]
     total_amt:Mapped[float]
     
-    order:Mapped["Order"] = relationship(back_populates="order_items")
+    order:Mapped["Order"] = relationship(back_populates="order_item")
     product:Mapped["Product"] = relationship(backref="order_items")
     
     __table_args__ = (UniqueConstraint("product_id"),)
@@ -254,13 +255,15 @@ class CustomerAddress(Base):
     __tablename__ = "customer_addresses"
     
     residence_number:Mapped[int]
-    customer_id: Mapped[int] = mapped_column(ForeignKey("orders.id"))
+    customer_id: Mapped[int] = mapped_column(ForeignKey("customers.id"))
     street:Mapped[str] = mapped_column(String(50))
     city:Mapped[str] = mapped_column(String(50))
     postal_code:Mapped[str] = mapped_column(String(50))
     country:Mapped[str] = mapped_column(String(50))
     description:Mapped[str] = mapped_column(String(50))
-     
+    
+    customer:Mapped["Customer"] = relationship(back_populates="address")
+    
     def __repr__(self) -> str:
         return [f"CustomerAddress(id={self.id!r}, residence_number={self.residence_number!r}, customer_id={self.customer_id!r},"
                 f"street={self.street!r}, city={self.city!r}, postal_code={self.postal_code}, country={self.country!r})"]
