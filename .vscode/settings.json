@@ -1,3 +1,5 @@
+
+// connection strings
 {
     "sqltools.connections": [
         {
@@ -12,3 +14,4 @@
         }
     ]
 }
+
