@@ -218,6 +218,7 @@ class Cart(Base):
     customer_id: Mapped[int] = mapped_column(ForeignKey("customers.id"))
     
     customer:Mapped["Customer"] = relationship(backref="cart")
+    
     __table_args__ = (UniqueConstraint("customer_id"),)
      
     def __repr__(self) -> str:

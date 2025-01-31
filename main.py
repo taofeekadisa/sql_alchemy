@@ -51,29 +51,74 @@ kona = session.query(Customer).filter_by(email='kon@dan.com').first()
 #     description = "Na my addres be this o"
 # )
 
-useraddress4 = CustomerAddress (
-    residence_number = 190,
-    customer = kona,
-    street = "Johnson Street",
-    city = "Lagos",
-    postal_code = "14568-90",
-    country = "Nigeria",
-    description = "Na my forth address be this o"
+# useraddress4 = CustomerAddress (
+#     residence_number = 190,
+#     customer = kona,
+#     street = "Johnson Street",
+#     city = "Lagos",
+#     postal_code = "14568-90",
+#     country = "Nigeria",
+#     description = "Na my forth address be this o"
+# )
+
+# useraddress5 = CustomerAddress (
+#     residence_number = 190,
+#     customer = kona,
+#     street = "Johnson Street",
+#     city = "Lagos",
+#     postal_code = "14568-90",
+#     country = "Nigeria",
+#     description = "Na my forth address be this o"
+# )
+
+# session.add_all([useraddress4, useraddress5])
+# session.commit()
+
+
+# Create product category
+
+# cat1 = Category(
+#     name = "big appliances",
+#     parentcategory = "appliances"
+# )
+
+# cat2 = Category(
+#     name = "small appliances",
+#     parentcategory = "appliances"
+# )
+
+# cat3 = Category(
+#     name = "home appliances",
+#     parentcategory = "appliances"
+# )
+
+# session.add_all([cat1, cat2, cat3])
+# session.commit()
+
+# Create vendors
+
+vendor1 = Vendor(
+    first_name = "xys",
+    last_name = "enterprises",
+    username = "xyz_enterprise",
+    email = "xyz@dan.com",
+    phone_number = "+2356546",
+    address = "123, Alaba international market",
+    password_hash = "mypass"
 )
 
-useraddress5 = CustomerAddress (
-    residence_number = 190,
-    customer = kona,
-    street = "Johnson Street",
-    city = "Lagos",
-    postal_code = "14568-90",
-    country = "Nigeria",
-    description = "Na my forth address be this o"
+vendor2 = Vendor(
+    first_name = "Mike",
+    last_name = "electronics",
+    username = "mike_igwe",
+    email = "mike.igwe@dan.com",
+    phone_number = "+235564654",
+    address = "125, computer village, Ikeja, Lagos",
+    password_hash = "mypass2"
 )
 
-session.add_all([useraddress4, useraddress5])
+session.add_all([vendor1, vendor2])
 session.commit()
-
 
 # #Add an expense
 # user1_expense = Expenses(
