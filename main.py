@@ -26,11 +26,8 @@ Base.metadata.create_all(engine)
 #     password_hash = "mypass2"
 # )
 
-# session.add_all([user1, user2])
-# session.commit()
 
-
-# user5 = Customer(
+# user3 = Customer(
 #     first_name = "Ade",
 #     last_name = "Kunle",
 #     username = "kunle.ade",
@@ -39,11 +36,14 @@ Base.metadata.create_all(engine)
 #     password_hash = "mypass3"
 # )
 
-kona = session.query(Customer).filter_by(email='kon@dan.com').first()
+# session.add_all([user1, user2,user3])
+# session.commit()
 
-# useraddress3 = CustomerAddress (
+# dan = session.query(Customer).filter_by(email='dan@dan.com').first()
+
+# useraddress1 = CustomerAddress (
 #     residence_number = 101,
-#     customer = user3,
+#     customer = dan,
 #     street = "Olasunkanmi Street",
 #     city = "Lagos",
 #     postal_code = "1200-101",
@@ -51,27 +51,41 @@ kona = session.query(Customer).filter_by(email='kon@dan.com').first()
 #     description = "Na my addres be this o"
 # )
 
+# kona = session.query(Customer).filter_by(email='kon@dan.com').first()
+
+# useraddress2 = CustomerAddress (
+#     residence_number = 190,
+#     customer = kona,
+#     street = "Johnson Street",
+#     city = "Lagos",
+#     postal_code = "14568-90",
+#     country = "Nigeria",
+#     description = "Na my address be this o"
+# )
+
+# useraddress3 = CustomerAddress (
+#     residence_number = 190,
+#     customer = kona,
+#     street = "Johnson Street",
+#     city = "Lagos",
+#     postal_code = "14568-90",
+#     country = "Nigeria",
+#     description = "Na my second address be this o"
+# )
+
+# ade = session.query(Customer).filter_by(email='ade@dan.com').first()
+
 # useraddress4 = CustomerAddress (
-#     residence_number = 190,
-#     customer = kona,
-#     street = "Johnson Street",
-#     city = "Lagos",
-#     postal_code = "14568-90",
+#     residence_number = 245,
+#     customer = ade,
+#     street = "olokemeje Street",
+#     city = "Ijebu-igbo",
+#     postal_code = "120105",
 #     country = "Nigeria",
-#     description = "Na my forth address be this o"
+#     description = "Ile Alhaja Labaeka"
 # )
 
-# useraddress5 = CustomerAddress (
-#     residence_number = 190,
-#     customer = kona,
-#     street = "Johnson Street",
-#     city = "Lagos",
-#     postal_code = "14568-90",
-#     country = "Nigeria",
-#     description = "Na my forth address be this o"
-# )
-
-# session.add_all([useraddress4, useraddress5])
+# session.add_all([useraddress1, useraddress2, useraddress3, useraddress4])
 # session.commit()
 
 
@@ -97,28 +111,62 @@ kona = session.query(Customer).filter_by(email='kon@dan.com').first()
 
 # Create vendors
 
-vendor1 = Vendor(
-    first_name = "xys",
-    last_name = "enterprises",
-    username = "xyz_enterprise",
-    email = "xyz@dan.com",
-    phone_number = "+2356546",
-    address = "123, Alaba international market",
-    password_hash = "mypass"
-)
+# vendor1 = Vendor(
+#     first_name = "xys",
+#     last_name = "enterprises",
+#     username = "xyz_enterprise",
+#     email = "xyz@dan.com",
+#     phone_number = "+2356546",
+#     address = "123, Alaba international market",
+#     password_hash = "mypass"
+# )
 
-vendor2 = Vendor(
-    first_name = "Mike",
-    last_name = "electronics",
-    username = "mike_igwe",
-    email = "mike.igwe@dan.com",
-    phone_number = "+235564654",
-    address = "125, computer village, Ikeja, Lagos",
-    password_hash = "mypass2"
-)
+# vendor2 = Vendor(
+#     first_name = "Mike",
+#     last_name = "electronics",
+#     username = "mike_igwe",
+#     email = "mike.igwe@dan.com",
+#     phone_number = "+235564654",
+#     address = "125, computer village, Ikeja, Lagos",
+#     password_hash = "mypass2"
+# )
 
-session.add_all([vendor1, vendor2])
-session.commit()
+# session.add_all([vendor1, vendor2])
+# session.commit()
+
+
+# create product
+# cat2 = session.query(Category).filter_by(name ='small appliances').first()
+# vendor1 = session.query(Vendor).filter_by(email ='mike.igwe@dan.com').first()
+
+# product1 = Product(
+#     name  = "Dell G15",
+#     description = "Gaming Laptop",
+#     price = 1395194.93,
+#     catogory = cat2,
+#     vendor = vendor1,
+#     status = "in_stock",
+#     image_url = "ufewn84jdifo"
+# )
+
+# session.add(product1)
+# session.commit()
+
+# cat1 = session.query(Category).filter_by(name ='small appliances').first()
+# vendor2 = session.query(Vendor).filter_by(email ='xyz@dan.com').first()
+
+# product2 = Product(
+#     name  = "iphone 15",
+#     description = "Apple Phone",
+#     price = 1285194.93,
+#     catogory = cat1,
+#     vendor = vendor2,
+#     status = "low_stock",
+#     image_url = "37hnsdn86nsdifo"
+# )
+
+# session.add(product2)
+# session.commit()
 
 # #Add an expense
 # user1_expense = Expenses(
